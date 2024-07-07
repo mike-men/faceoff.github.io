@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothing Brand Website</title>
+    <link rel="stylesheet" href="s.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">Clothing Brand</div>
+        <div class="cart-container">
+            <button class="cart-button" id="cart-button">
+                Cart (<span id="cart-count">0</span>)
+            </button>
+            <div class="cart-dropdown" id="cart-dropdown">
+                <h3>Cart Items</h3>
+                <ul id="cart-items-list">
+                    <!-- Cart items will be dynamically inserted here -->
+                </ul>
+                <div class="cart-total">
+                    Total: $<span id="cart-total">0.00</span>
+                </div>
+                <button class="checkout-btn">Checkout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Product List -->
+    <div class="product-list">
+        <div class="product" data-name="T-Shirt" data-price="19.99">
+            <h4>T-Shirt</h4>
+            <button onclick="addToCart('T-Shirt', 19.99)">Add to Cart</button>
+        </div>
+        <div class="product" data-name="Jeans" data-price="49.99">
+            <h4>Jeans</h4>
+            <button onclick="addToCart('Jeans', 49.99)">Add to Cart</button>
+        </div>
+        <!-- More products can be added here -->
+    </div>
+
+    <script src="scripts/cart.js">
+        let cart = [];
+
+// Function to add items to the cart
+function addToCart(productName, productPrice) {
+    // Check if the product is already in the cart
+    let productIndex = cart.findIndex(item => item.name === productName);
+    if (productIndex === -1) {
+        // Add new product to the cart
+        cart.push({ name: productName, price: productPrice, quantity: 1 });
+    } else {
+        // Update the quantity of the existing product
+        cart[productIndex].quantity += 1;
+    }
+    updateCart();
+}
+
+// Function to update the cart display
+function updateCart() {
+    // Update the cart count
+    document.getElementById('cart-count').textContent = cart.length;
+
+    // Update the cart items list
+    let cartItemsList = document.getElementById('cart-items-list');
+    cartItemsList.innerHTML = '';
+    let total = 0;
+    cart.forEach(item => {
+        total += item.price * item.quantity;
+        let li = document.createElement('li');
+        li.textContent = `${item.name} (x${item.quantity}) - $${(item.price * item.quantity).toFixed(2)}`;
+        cartItemsList.appendChild(li);
+    });
+
+    // Update the total price
+    document.getElementById('cart-total').textContent = total.toFixed(2);
+}
+
+    </script>
+</body>
+</html>

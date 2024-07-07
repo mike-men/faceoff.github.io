@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FACE OFF</title>
+    <link rel="stylesheet" href="h.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html"><img src="Face off (White).png" alt="Logo"></a>
+        </div>
+        <div class="navigation" id="nav-menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="product.html">Products</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+         <!-- Cart Icon -->
+        <div class="cart-container">
+            <div class="cart-icon" id="cart-icon">
+                <i class='bx bx-cart'></i>
+                <span id="cart-count">0</span>
+            </div>
+            <!-- Cart Dropdown -->
+            <div class="cart-dropdown" id="cart-dropdown">
+                <ul id="cart-items">
+                    <!-- Items will be dynamically added here -->
+                </ul>
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cart-total">$0.00</span>
+                </div>
+            </div>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <i class='bx bx-menu' id="hamburger-icon"></i>
+        </div>
+    </nav>
+   
+    <main>
+        <section class="hero">
+            <h2>Discover Your Style</h2>
+            <p>Latest trends and timeless classics</p>
+            <a href="product.html" class="btns">Shop Now</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 FACE OFF</p>
+    </footer>
+
+    <!-- JavaScript for menu toggle and cart management -->
+    <script src="h.js"></script>
+</body>
+</html>
